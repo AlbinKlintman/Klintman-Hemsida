@@ -1,13 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const easterBtn = document.getElementById('easter-btn');
-    const emojis = ['🌷', '🌸', '🌼', '🥚', '🐣', '🐥', '🐤', '🐇', '🐰', '🍭', '🦋', '🌱'];
+    const midsommarBtn = document.getElementById('midsommar-btn');
+    const emojis = [
+        '🇸🇪', '🇸🇪', '🇸🇪',
+        '🌷', '🌷', '🌷', '🌸', '🌸', '🌼', '🌼', '💐', '🌺', '🌻',
+        '❤️', '💛', '💚',
+        '🍓', '🍓', '🍓', '🎂', '🎂',
+        '🐞', '🐸', '🐞',
+    ];
 
-    easterBtn.addEventListener('click', () => {
+    midsommarBtn.addEventListener('click', () => {
         createEmojiShower();
     });
 
     function createEmojiShower() {
-        const particleCount = 60;
+        const particleCount = 72;
         
         for (let i = 0; i < particleCount; i++) {
             // Add a small delay for each emoji to make it look like a shower

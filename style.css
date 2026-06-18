@@ -1,9 +1,10 @@
 :root {
     /* Color Palette */
-    --bg-color: #0c0c0c;
-    --text-color: #ffffff;
-    --accent-gradient: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
-    --secondary-gradient: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    --bg-color: #08130c;
+    --bg-accent: radial-gradient(circle at top, rgba(255, 236, 153, 0.28), transparent 34%), radial-gradient(circle at bottom, rgba(109, 179, 63, 0.35), transparent 42%);
+    --text-color: #fffaf0;
+    --accent-gradient: linear-gradient(135deg, #ffe680 0%, #fff4b8 35%, #7ad36b 100%);
+    --secondary-gradient: linear-gradient(to right, #f9d34c 0%, #7ad36b 100%);
     
     /* Typography */
     --font-main: 'Outfit', sans-serif;
@@ -17,6 +18,8 @@
 
 body {
     background-color: var(--bg-color);
+    background-image: var(--bg-accent);
+    background-attachment: fixed;
     color: var(--text-color);
     font-family: var(--font-main);
     height: 100vh;
@@ -76,7 +79,7 @@ body {
     transform: translate(-50%, -50%);
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, rgba(161, 140, 209, 0.15) 0%, rgba(12, 12, 12, 0) 70%);
+    background: radial-gradient(circle, rgba(255, 230, 128, 0.18) 0%, rgba(8, 19, 12, 0) 70%);
     border-radius: 50%;
     z-index: -1;
     animation: glowPulse 8s infinite alternate ease-in-out;
@@ -92,9 +95,9 @@ body {
     gap: 2rem;
     z-index: 1000;
     padding: 0.5rem 1.5rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 250, 240, 0.06);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 250, 240, 0.08);
     border-radius: 50px;
     animation: fadeInScale 1s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
 }
@@ -141,15 +144,15 @@ body {
     height: 24px;
 }
 
-/* Easter Button */
-.easter-button {
+/* Midsummer Button */
+.season-button {
     padding: 1rem 2.5rem;
     font-size: 1.2rem;
     font-weight: 600;
     font-family: var(--font-main);
     color: var(--text-color);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 250, 240, 0.08);
+    border: 1px solid rgba(255, 250, 240, 0.14);
     border-radius: 50px;
     backdrop-filter: blur(10px);
     cursor: pointer;
@@ -160,16 +163,18 @@ body {
     user-select: none;
 }
 
-.easter-button:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(161, 140, 209, 0.4);
+.season-button:hover {
+    background: rgba(255, 250, 240, 0.14);
+    border-color: rgba(122, 211, 107, 0.5);
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(161, 140, 209, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28), 0 0 20px rgba(122, 211, 107, 0.22);
 }
 
-.easter-button:active {
+.season-button:active {
     transform: translateY(-2px);
 }
+
+/* Midsummer Button */
 
 /* Emoji Shower Styles */
 .emoji-particle {
@@ -221,11 +226,11 @@ body {
 @keyframes glowPulse {
     0% {
         transform: translate(-50%, -50%) scale(1);
-        opacity: 0.5;
+        opacity: 0.42;
     }
     100% {
         transform: translate(-50%, -50%) scale(1.5);
-        opacity: 0.8;
+        opacity: 0.72;
     }
 }
 
