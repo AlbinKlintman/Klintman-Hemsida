@@ -1,50 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const midsommarBtn = document.getElementById('midsommar-btn');
-    const emojis = [
-        '🇸🇪', '🇸🇪', '🇸🇪',
-        '🌷', '🌷', '🌷', '🌸', '🌸', '🌼', '🌼', '💐', '🌺', '🌻',
-        '❤️', '💛', '💚',
-        '🍓', '🍓', '🍓', '🎂', '🎂',
-        '🐞', '🐸', '🐞',
-    ];
+    const translations = {
+        sv: {
+            intro: 'Välkommen till vår familjedomän som används för mejl.',
+            portfolioIntro: 'För att se våra portfoliosidor kolla här:',
+            ownerCaption: 'Ägare av domänen',
+        },
+        en: {
+            intro: 'Welcome to our family domain used for email.',
+            portfolioIntro: 'To see our portfolio sites, check here:',
+            ownerCaption: 'Domain owner',
+        },
+    };
 
-    midsommarBtn.addEventListener('click', () => {
-        createEmojiShower();
-    });
+    const toggle = document.getElementById('lang-toggle');
+    const langOptions = toggle.querySelectorAll('.lang-option');
+    const i18nElements = document.querySelectorAll('[data-i18n]');
 
-    function createEmojiShower() {
-        const particleCount = 72;
-        
-        for (let i = 0; i < particleCount; i++) {
-            // Add a small delay for each emoji to make it look like a shower
-            setTimeout(() => {
-                const emoji = document.createElement('div');
-                emoji.className = 'emoji-particle';
-                emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-                
-                // Randomize horizontal position (0-100vw)
-                const leftPos = Math.random() * 100;
-                emoji.style.left = `${leftPos}vw`;
-                
-                // Add a random horizontal sway
-                const sway = (Math.random() - 0.5) * 40; // up to +/- 20px sway
-                emoji.style.setProperty('--sway', `${sway}px`);
-                
-                // Randomize animation duration (2.5-6 seconds)
-                const duration = 2.5 + Math.random() * 3.5;
-                emoji.style.animationDuration = `${duration}s`;
-                
-                // Randomize size slightly
-                const size = 1.2 + Math.random() * 1.8;
-                emoji.style.fontSize = `${size}rem`;
+    function setLanguage(lang) {
+        const dict = translations[lang] || translations.sv;
 
-                document.body.appendChild(emoji);
+        i18nElements.forEach((el) => {
+            const key = el.getAttribute('data-i18n');
+            if (dict[key]) {
+                el.textContent = dict[key];
+            }
+        });
 
-                // Remove the element after animation is done
-                setTimeout(() => {
-                    emoji.remove();
-                }, duration * 1000);
-            }, i * (35 + Math.random() * 40)); // Randomize timing between spawns
+        langOptions.forEach((option) => {
+            option.classList.toggle('active', option.dataset.lang === lang);
+        });
+
+        document.documentElement.lang = lang;
+
+        try {
+            localStorage.setItem('klintman-lang', lang);
+        } catch (e) {
+            // localStorage unavailable, ignore
         }
     }
+
+    toggle.addEventListener('click', () => {
+        const currentLang = document.documentElement.lang === 'en' ? 'en' : 'sv';
+        setLanguage(currentLang === 'sv' ? 'en' : 'sv');
+    });
+
+    let initialLang = 'sv';
+    try {
+        initialLang = localStorage.getItem('klintman-lang') || 'sv';
+    } catch (e) {
+        // localStorage unavailable, keep default
+    }
+    setLanguage(initialLang);
 });

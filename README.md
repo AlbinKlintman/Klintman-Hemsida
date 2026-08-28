@@ -1,23 +1,29 @@
 # Klintman Hemsida
 
-En enkel och stilren hemsida för vår familj och vår domän.
+A simple, clean landing page for our family domain, klintman.org.
 
-## Om Projektet
-Detta är en minimalistisk landningssida byggd med modern HTML och CSS. Den är designad för att vara snabb, responsiv och visuellt tilltalande med ett fokus på vårt efternamn: **Klintman**.
+## About the Project
+The domain is used primarily for email, but the landing page briefly explains that and links out to the family's portfolio sites. Built with plain HTML, CSS, and vanilla JavaScript — no frameworks or external libraries.
 
-### Egenskaper
-- **Modern Design**: Responsiv typografi och mjuka animationer.
-- **Prestanda**: Inga tunga bibliotek, bara ren CSS och HTML.
-- **Typografi**: Använder [Outfit](https://fonts.google.com/specimen/Outfit) från Google Fonts.
+### Features
+- **Modern Design**: Responsive typography, subtle animations, and a dark color palette.
+- **Multilingual**: A SV/EN toggle in the top-right corner that switches all page text via `data-i18n` attributes and remembers the choice in `localStorage`.
+- **Performance**: No heavy libraries, just plain HTML, CSS, and JavaScript.
+- **Typography**: Uses [Outfit](https://fonts.google.com/specimen/Outfit) from Google Fonts.
 
-## Komma Igång
-Eftersom detta är en statisk webbplats behövs ingen installation. 
+## Structure
+- `index.html` – page content and structure.
+- `style.css` – all styling, including the responsive layout and animations.
+- `script.js` – logic for the language toggle (SV/EN).
 
-1. Klona repot:
+## Getting Started
+Since this is a static website, no installation is required.
+
+1. Clone the repo:
    ```bash
-   git clone https://github.com/ditt-användarnamn/klintman-hemsida.git
+   git clone https://github.com/your-username/klintman-hemsida.git
    ```
-2. Öppna `index.html` direkt i din webbläsare.
+2. Open `index.html` directly in your browser.
 
-## Licens
-Detta projekt är avsett för personligt bruk för familjen Klintman.
+## License
+This project is intended for personal use by the Klintman family.
